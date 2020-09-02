@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup(
     name='biomapas_aws_api_ws',
-    version='0.0.2',
+    version='0.0.3',
     license='Apache License 2.0',
     packages=find_packages(exclude=[
         # Exclude virtual environment.
