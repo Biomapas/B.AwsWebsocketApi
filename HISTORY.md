@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.5
+Fix readme.
+
 ### 0.0.4
 Update name.
 

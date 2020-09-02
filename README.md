@@ -67,7 +67,7 @@ stack = Stack(...)
 
 Create an API:
 ```python
-from biomapas_aws_api_ws.ws_api import WsApi
+from b_aws_websocket_api.ws_api import WsApi
 api = WsApi(
     scope=stack,
     id='TestWsApi',
@@ -79,7 +79,7 @@ api = WsApi(
 
 Create a stage (usually it is called `prod`):
 ```python
-from biomapas_aws_api_ws.ws_stage import WsStage
+from b_aws_websocket_api.ws_stage import WsStage
 stage = WsStage(
     scope=stack,
     id='TestStage',
@@ -91,7 +91,7 @@ stage = WsStage(
 
 Create a lambda function to handle incoming requests (frames):
 ```python
-from biomapas_aws_api_ws.ws_function import WsFunction
+from b_aws_websocket_api.ws_function import WsFunction
 from aws_cdk.aws_lambda import Code, Runtime
 backend = WsFunction(
     scope=stack,
@@ -113,7 +113,7 @@ backend = WsFunction(
 
 Create a lambda integration (later will be needed for a route):
 ```python
-from biomapas_aws_api_ws.ws_lambda_integration import WsLambdaIntegration
+from b_aws_websocket_api.ws_lambda_integration import WsLambdaIntegration
 integration = WsLambdaIntegration(
     scope=stack,
     id='TestIntegration',
@@ -125,7 +125,7 @@ integration = WsLambdaIntegration(
 
 Create a custom route backed by a lambda function:
 ```python
-from biomapas_aws_api_ws.ws_route import WsRoute
+from b_aws_websocket_api.ws_route import WsRoute
 route = WsRoute(
     scope=stack,
     id='TestRoute',
@@ -139,7 +139,7 @@ route = WsRoute(
 
 Finally deploy the API:
 ```python
-from  biomapas_aws_api_ws.ws_deployment import WsDeployment
+from  b_aws_websocket_api.ws_deployment import WsDeployment
 deployment = WsDeployment(
     scope=stack,
     id='TestDeployment',
