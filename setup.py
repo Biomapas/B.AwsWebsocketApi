@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup(
     name='biomapas_aws_api_ws',
-    version='0.0.1',
+    version='0.0.2',
     license='Apache License 2.0',
     packages=find_packages(exclude=[
         # Exclude virtual environment.
@@ -23,6 +23,13 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     install_requires=[
+        # Aws cdk specific.
+        "aws-cdk.core>=1.61.1,<2.0.0",
+        "aws_cdk.aws_apigatewayv2>=1.61.1,<2.0.0",
+        "aws-cdk.aws-lambda>=1.61.1,<2.0.0",
+        "aws-cdk.custom_resources>=1.61.1,<2.0.0",
+        # Other.
+        "biomapas-continuous-subprocess>=1.0.0,<2.0.0"
     ],
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@biomapas.com',
