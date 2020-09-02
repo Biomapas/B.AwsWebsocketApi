@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.6
+Move imports in testing manager.
+
 ### 0.0.5
 Fix readme.
 

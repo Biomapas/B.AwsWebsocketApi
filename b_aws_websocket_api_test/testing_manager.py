@@ -3,7 +3,6 @@ import os
 import subprocess
 from subprocess import CalledProcessError
 
-import boto3
 from biomapas_continuous_subprocess.continuous_subprocess import ContinuousSubprocess
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
@@ -66,6 +65,8 @@ class TestingManager:
 
     @staticmethod
     def __set_outputs() -> None:
+        import boto3
+
         # We expect one stack. And the name of the stack is an output of a "cdk list" command.
         output = subprocess.check_output(
             f'cdk list --profile {TestingManager.TEST_PROFILE}',
@@ -74,7 +75,8 @@ class TestingManager:
         ).decode().strip()
 
         session = boto3.session.Session(profile_name=TestingManager.TEST_PROFILE)
-        response = session.client('cloudformation', region_name=TestingManager.AWS_REGION_NAME).describe_stacks(StackName=output)
+        response = session.client('cloudformation', region_name=TestingManager.AWS_REGION_NAME).describe_stacks(
+            StackName=output)
         stack_outputs = response['Stacks'][0]['Outputs']
 
         stack_outputs_container = {}
