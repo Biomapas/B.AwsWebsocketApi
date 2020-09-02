@@ -5,7 +5,7 @@ import time
 
 import websockets
 
-from biomapas_aws_api_ws_test.testing_manager import TestingManager
+from b_aws_websocket_api_test.testing_manager import TestingManager
 
 logger = logging.getLogger(__name__)
 

@@ -7,14 +7,14 @@ with open('HISTORY.md') as history_file:
     HISTORY = history_file.read()
 
 setup(
-    name='biomapas_aws_api_ws',
-    version='0.0.3',
+    name='b_aws_websocket_api',
+    version='0.0.4',
     license='Apache License 2.0',
     packages=find_packages(exclude=[
         # Exclude virtual environment.
         'venv',
         # Exclude test source files.
-        'biomapas_aws_api_ws_test'
+        'b_aws_websocket_api_test'
     ]),
     description=(
         'AWS CDK package that helps creating web socket APIs.'
@@ -34,7 +34,7 @@ setup(
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@biomapas.com',
     keywords='AWS CDK API WebSocket',
-    url='https://github.com/biomapas/BiomapasAwsApiWs.git',
+    url='https://github.com/Biomapas/B.AwsWebsocketApi',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',

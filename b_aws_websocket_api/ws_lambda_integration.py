@@ -1,8 +1,8 @@
 from aws_cdk.aws_lambda import IFunction
 from aws_cdk.core import Stack
 
-from biomapas_aws_api_ws.ws_api import WsApi
-from biomapas_aws_api_ws.ws_integration import WsIntegration
+from b_aws_websocket_api.ws_api import WsApi
+from b_aws_websocket_api.ws_integration import WsIntegration
 
 
 class WsLambdaIntegration(WsIntegration):

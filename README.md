@@ -1,4 +1,4 @@
-# BiomapasAwsApiWs
+# B.AwsWebsocketApi
 
 An AWS CDK based python library that helps you to create websocket based APIs.
 

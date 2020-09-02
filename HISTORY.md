@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.4
+Update name.
+
 ### 0.0.3
 Remove idea files.
 

@@ -1,4 +1,4 @@
-from biomapas_aws_api_ws_test.testing_manager import TestingManager
+from b_aws_websocket_api_test.testing_manager import TestingManager
 
 
 def pytest_configure(config):

@@ -1,2 +1,4 @@
 include LICENSE
-recursive-include biomapas_aws_api_ws *.py
+include *.md
+
+recursive-include b_aws_websocket_api *.py

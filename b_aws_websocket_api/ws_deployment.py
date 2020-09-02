@@ -1,7 +1,7 @@
 from aws_cdk.aws_apigatewayv2 import CfnDeployment
 from aws_cdk.core import Stack
 
-from biomapas_aws_api_ws.ws_stage import WsStage
+from b_aws_websocket_api.ws_stage import WsStage
 
 
 class WsDeployment(CfnDeployment):
