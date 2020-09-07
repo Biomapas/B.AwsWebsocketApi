@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.7
+Fix stage log group name.
+
 ### 0.0.6
 Move imports in testing manager.
 

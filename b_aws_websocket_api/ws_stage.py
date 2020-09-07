@@ -65,8 +65,8 @@ class WsStage(CfnStage):
         if create_default_access_log_settings:
             log_group = LogGroup(
                 scope=scope,
-                id=f'{stage_name}LogGroup',
-                log_group_name=f'{stage_name}LogGroup',
+                id=f'{id}LogGroup',
+                log_group_name=f'{id}LogGroup',
                 removal_policy=RemovalPolicy.DESTROY,
                 retention=RetentionDays.ONE_MONTH
             )
