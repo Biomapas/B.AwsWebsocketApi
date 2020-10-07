@@ -29,7 +29,13 @@ def test_websocket_connection(
             raise RecursionError()
 
         try:
-            async with websockets.connect(websocket_url, timeout=10) as websocket:
+            timeouts = dict(
+                timeout=10,
+                close_timeout=10,
+                ping_timeout=10
+            )
+
+            async with websockets.connect(websocket_url, **timeouts) as websocket:
                 await websocket.send(json.dumps(dict(action='test')))
 
                 data = await websocket.recv()
@@ -41,7 +47,6 @@ def test_websocket_connection(
 
             time.sleep(sleep_seconds)
 
-            sleep_seconds *= 1.5
             current_attempt += 1
 
             await hello(current_attempt, max_attempts, sleep_seconds)
