@@ -47,7 +47,7 @@ https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocke
 The project is built and uploaded to PyPi. Install it by using pip.
 
 ```
-pip install biomapas-aws-api-ws
+pip install b-aws-websocket-api
 ```
 
 Or directly install it through source.
@@ -163,23 +163,22 @@ test how resources are created in AWS environment. Since resources
 are created and tested in AWS you are subject for all the applicable
 charges while tests are being run.
 
-Before running tests set an environment variable `BIOMAPAS_AWS_API_WS_TEST_PROFILE`.
-This environment variable specifies an aws account to use for deployment and testing.
-Usually this profile is called `default` when created with `aws configure` cli command.
+#### Setting environment
 
-Set on Windows:
-```
-set BIOMAPAS_AWS_API_WS_TEST_PROFILE=default
-```
+Before running tests set environment variables:
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
 
-Set on Linux:
-```
-export BIOMAPAS_AWS_API_WS_TEST_PROFILE=default
-```
+Or:
+- AWS_PROFILE
+- AWS_DEFAULT_REGION
+
+#### Running tests
 
 Then run tests from a root directory with `pytest` python testing library:
 ```
-pytest
+pytest b_aws_websocket_api_test
 ```
 
 Note that integration tests usually take a while to complete (from 5 to 30

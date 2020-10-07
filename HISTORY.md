@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.9
+* Update readme documentation regarding testing.
+
 ### 0.0.8
 * Add CI/CD pipelines.
 * Update History file.
