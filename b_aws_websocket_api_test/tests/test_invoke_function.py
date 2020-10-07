@@ -1,26 +1,28 @@
 import logging
+from typing import Any
 
-import boto3
+from b_aws_testing_framework.credentials import Credentials
 
-from b_aws_websocket_api_test.testing_manager import TestingManager
+from b_aws_websocket_api_test.testing_infrastructure import TestingInfrastructure
 
 logger = logging.getLogger(__name__)
 
 
-def test_invoke_function() -> None:
+def test_invoke_function(
+        stack_outputs: Any
+) -> None:
     """
     Invokes a backend lambda function and tests its response.
 
     :return: No return.
     """
-    # The function name is defined in our testing infrastructure file.
-    WS_FUNCTION_NAME = 'TestFunction'
+    function_name = stack_outputs[TestingInfrastructure.LAMBDA_FUNCTION_NAME_KEY]
 
-    logger.info(f'Invoking function: {WS_FUNCTION_NAME}.')
+    logger.info(f'Invoking function: {function_name}.')
 
-    session = boto3.session.Session(profile_name=TestingManager.TEST_PROFILE)
-    response = session.client('lambda', region_name=TestingManager.AWS_REGION_NAME).invoke(
-        FunctionName=WS_FUNCTION_NAME,
+    session = Credentials().boto_session
+    response = session.client('lambda').invoke(
+        FunctionName=function_name,
         InvocationType='RequestResponse'
     )
 

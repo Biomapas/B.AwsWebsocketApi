@@ -2,7 +2,7 @@
 
 An AWS CDK based python library that helps you to create websocket based APIs.
 
-#### Description
+### Description
 
 Creating APIs in AWS is pretty challenging. You have to create stages, deployments,
 apis, resources, methods, etc. One might argue that creating a websocket based
@@ -11,14 +11,14 @@ inconvenience by offering resources and examples on how to create a websocket
 API the correct way. We have spent countless hours to perfect it but still
 there will always be some "gotchas" in AWS environment.
 
-#### Remarks
+### Remarks
 
 [Biomapas](https://biomapas.com) aims to modernise life-science 
 industry by sharing its IT knowledge with other companies and 
 the community. This is an open source library intended to be used 
 by anyone. Improvements and pull requests are welcome.
 
-#### Related technology
+### Related technology
 
 - Python 3
 - AWS CDK
@@ -26,7 +26,7 @@ by anyone. Improvements and pull requests are welcome.
 - AWS API Gateway
 - Websockets
 
-#### Assumptions
+### Assumptions
 
 The project assumes the following:
 
@@ -34,7 +34,7 @@ The project assumes the following:
 - You have basic-good knowledge in AWS.
 - You have basic knowledge in websockets.
 
-#### Useful sources
+### Useful sources
 
 - Read more about AWS API Gateway:<br>
 https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html.
@@ -42,21 +42,21 @@ https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html.
 - Read more about AWS websocket API:<br>
 https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html
 
-#### Install
+### Install
 
 The project is built and uploaded to PyPi. Install it by using pip.
 
-```bash
+```
 pip install biomapas-aws-api-ws
 ```
 
 Or directly install it through source.
 
-```bash
+```
 pip install .
 ```
 
-#### Examples
+### Usage & Examples
 
 Create a stack to hold your resources:
 
@@ -155,7 +155,7 @@ deployment.node.add_dependency(stage)
 
 Now execute `cdk deploy *` and enjoy your new websocket API!
 
-#### Testing
+### Testing
 
 The project has tests that can be run. 
 Note, that tests are integration tests inherently because they
@@ -168,24 +168,24 @@ This environment variable specifies an aws account to use for deployment and tes
 Usually this profile is called `default` when created with `aws configure` cli command.
 
 Set on Windows:
-```bash
+```
 set BIOMAPAS_AWS_API_WS_TEST_PROFILE=default
 ```
 
 Set on Linux:
-```bash
+```
 export BIOMAPAS_AWS_API_WS_TEST_PROFILE=default
 ```
 
 Then run tests from a root directory with `pytest` python testing library:
-```bash
+```
 pytest
 ```
 
 Note that integration tests usually take a while to complete (from 5 to 30
 minutes on average).
 
-#### Contribution
+### Contribution
 
 Found a bug? Want to add or suggest a new feature?<br>
 Contributions of any kind are gladly welcome. You may contact us 

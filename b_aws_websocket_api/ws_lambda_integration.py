@@ -1,7 +1,8 @@
+from typing import Union
+
 from aws_cdk.aws_lambda import IFunction
 from aws_cdk.core import Stack
-
-from b_aws_websocket_api.ws_api import WsApi
+from b_aws_websocket_api.ws_function import WsFunction
 from b_aws_websocket_api.ws_integration import WsIntegration
 
 
@@ -15,8 +16,8 @@ class WsLambdaIntegration(WsIntegration):
             scope: Stack,
             id: str,
             integration_name: str,
-            ws_api: WsApi,
-            function: IFunction,
+            ws_api: Union[IFunction, WsFunction],
+            function: WsFunction,
             *args,
             **kwargs
     ) -> None:

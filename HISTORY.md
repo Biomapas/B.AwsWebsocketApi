@@ -1,22 +1,28 @@
 # Release history
 
+### 0.0.8
+* Add CI/CD pipelines.
+* Update History file.
+* Refactor testing.
+* Update Readme file.
+
 ### 0.0.7
-Fix stage log group name.
+* Fix stage log group name.
 
 ### 0.0.6
-Move imports in testing manager.
+* Move imports in testing manager.
 
 ### 0.0.5
-Fix readme.
+* Fix readme.
 
 ### 0.0.4
-Update name.
+* Update name.
 
 ### 0.0.3
-Remove idea files.
+* Remove idea files.
 
 ### 0.0.2
-Added project files. Added tests.
+* Added project files. Added tests.
 
 ### 0.0.1
-Initial build. No project files, just a semi-empty project.
+* Initial build. No project files, just a semi-empty project.

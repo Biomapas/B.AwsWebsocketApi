@@ -1,14 +1,16 @@
-from b_aws_websocket_api_test.testing_manager import TestingManager
+import logging
+import os
+from pytest import fixture
 
+from b_aws_testing_framework.tools.cdk_testing.testing_manager import TestingManager
+from b_aws_testing_framework.credentials import Credentials
+from b_aws_testing_framework.tools.cdk_testing.cdk_tool_config import CdkToolConfig
 
-def pytest_configure(config):
-    """
-    Allows plugins and conftest files to perform initial configuration.
-    This hook is called for every plugin and initial conftest
-    file after command line options have been parsed.
-    """
-    TestingManager.bootstrap()
-    TestingManager.prepare_infrastructure()
+from b_aws_websocket_api_test.util.get_stack_outputs import get_stack_outputs
+
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
+
+CDK_PATH = f'{os.path.dirname(os.path.abspath(__file__))}'
 
 
 def pytest_sessionstart(session):
@@ -16,7 +18,7 @@ def pytest_sessionstart(session):
     Called after the Session object has been created and
     before performing collection and entering the run test loop.
     """
-    pass
+    TestingManager(Credentials(), CdkToolConfig(CDK_PATH)).prepare_infrastructure()
 
 
 def pytest_sessionfinish(session, exitstatus):
@@ -24,11 +26,9 @@ def pytest_sessionfinish(session, exitstatus):
     Called after whole test run finished, right before
     returning the exit status to the system.
     """
-    TestingManager.destroy_infrastructure()
+    TestingManager(Credentials(), CdkToolConfig(CDK_PATH)).destroy_infrastructure()
 
 
-def pytest_unconfigure(config):
-    """
-    Called before test process is exited.
-    """
-    pass
+@fixture(scope='session')
+def stack_outputs():
+    return get_stack_outputs()

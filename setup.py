@@ -6,9 +6,13 @@ with open('README.md') as readme_file:
 with open('HISTORY.md') as history_file:
     HISTORY = history_file.read()
 
+with open('VERSION') as file:
+    VERSION = file.read()
+    VERSION = ''.join(VERSION.split())
+
 setup(
     name='b_aws_websocket_api',
-    version='0.0.7',
+    version=VERSION,
     license='Apache License 2.0',
     packages=find_packages(exclude=[
         # Exclude virtual environment.
@@ -20,21 +24,28 @@ setup(
         'AWS CDK package that helps creating web socket APIs.'
     ),
     long_description=README + '\n\n' + HISTORY,
-    long_description_content_type="text/markdown",
+    long_description_content_type='text/markdown',
     include_package_data=True,
     install_requires=[
-        # Aws cdk specific.
-        "aws-cdk.core>=1.61.1,<2.0.0",
-        "aws_cdk.aws_apigatewayv2>=1.61.1,<2.0.0",
-        "aws-cdk.aws-lambda>=1.61.1,<2.0.0",
-        "aws-cdk.custom_resources>=1.61.1,<2.0.0",
+        # AWS CDK.
+        'aws-cdk.core>=1.61.1,<2.0.0',
+        'aws_cdk.aws_apigatewayv2>=1.61.1,<2.0.0',
+        'aws-cdk.aws-lambda>=1.61.1,<2.0.0',
+        'aws-cdk.custom_resources>=1.61.1,<2.0.0',
+
+        # Our.
+        'b-aws-testing-framework>=0.0.11,<2.0.0',
+        'b-cf-outputs>=0.0.2,<1.0.0',
+
         # Other.
-        "biomapas-continuous-subprocess>=1.0.0,<2.0.0"
+        'websockets>=8.0.0,<9.0.0',
+        'pytest>=6.0.2,<7.0.0',
+        'pytest-cov>=2.10.1,<3.0.0'
     ],
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@biomapas.com',
     keywords='AWS CDK API WebSocket',
-    url='https://github.com/Biomapas/B.AwsWebsocketApi',
+    url='https://github.com/Biomapas/B.AwsWebsocketApi.git',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',

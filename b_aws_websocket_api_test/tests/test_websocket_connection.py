@@ -2,32 +2,34 @@ import asyncio
 import json
 import logging
 import time
+from typing import Any
 
 import websockets
 
-from b_aws_websocket_api_test.testing_manager import TestingManager
+from b_aws_websocket_api_test.testing_infrastructure import TestingInfrastructure
 
 logger = logging.getLogger(__name__)
 
 
-def test_websocket_connection() -> None:
+def test_websocket_connection(
+        stack_outputs: Any
+) -> None:
     """
     Establishes a websocket connection with an API.
     Tries to send and receive a frame.
 
     :return: No return.
     """
-    # The websocket url is created as an output from executing test infrastructure creation.
-    WS_URL = TestingManager.CLOUDFORMATION_STACK_OUTPUTS['TestWsApiUrl']
+    websocket_url = stack_outputs[TestingInfrastructure.WEBSOCKET_API_URL_KEY]
 
-    logger.info(f'Creating websocket connection with url: {WS_URL}.')
+    logger.info(f'Creating websocket connection with url: {websocket_url}.')
 
     async def hello(current_attempt: int = 0, max_attempts: int = 5, sleep_seconds: int = 2):
         if current_attempt == max_attempts:
             raise RecursionError()
 
         try:
-            async with websockets.connect(WS_URL) as websocket:
+            async with websockets.connect(websocket_url, timeout=10) as websocket:
                 await websocket.send(json.dumps(dict(action='test')))
 
                 data = await websocket.recv()
