@@ -28,10 +28,10 @@ setup(
     include_package_data=True,
     install_requires=[
         # AWS CDK.
-        'aws-cdk.core>=1.61.1,<2.0.0',
-        'aws_cdk.aws_apigatewayv2>=1.61.1,<2.0.0',
-        'aws-cdk.aws-lambda>=1.61.1,<2.0.0',
-        'aws-cdk.custom_resources>=1.61.1,<2.0.0',
+        'aws-cdk.core>=1.60.0,<2.0.0',
+        'aws_cdk.aws_apigatewayv2>=1.60.0,<2.0.0',
+        'aws-cdk.aws-lambda>=1.60.0,<2.0.0',
+        'aws-cdk.custom_resources>=1.60.0,<2.0.0',
 
         # Our.
         'b-aws-testing-framework>=0.0.11,<2.0.0',
