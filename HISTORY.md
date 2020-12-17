@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.12
+* Expose function in lambda integration.
+
 ### 0.0.11
 * Update docker image for pipelines.
 * Add hash properties.

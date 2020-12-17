@@ -35,6 +35,7 @@ class WsLambdaIntegration(WsIntegration):
         """
         self.__id = id
         self.__integration_name = integration_name
+        self.__function = function
 
         super().__init__(
             scope=scope,
@@ -47,6 +48,10 @@ class WsLambdaIntegration(WsIntegration):
             *args,
             **kwargs
         )
+
+    @property
+    def function(self):
+        return self.__function
 
     @property
     def hash(self):

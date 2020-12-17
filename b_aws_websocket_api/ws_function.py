@@ -1,3 +1,4 @@
+import hashlib
 from typing import Optional, Mapping, List
 
 from aws_cdk.aws_ec2 import ISecurityGroup, IVpc, SubnetSelection
@@ -85,6 +86,9 @@ class WsFunction(Function):
         :param args: Additional arguments.
         :param kwargs: Additional named arguments.
         """
+        self.__id = id
+        self.__name = function_name
+
         super().__init__(
             scope=scope,
             id=id,
@@ -126,3 +130,12 @@ class WsFunction(Function):
             function_name=self.function_name,
             principal='apigateway.amazonaws.com',
         )
+
+    @property
+    def hash(self):
+        hashable = (
+               self.__id +
+               self.__name
+        ).encode('utf-8')
+
+        return hashlib.sha256(hashable).hexdigest()
