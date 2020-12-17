@@ -1,3 +1,4 @@
+import hashlib
 from typing import Union
 
 from aws_cdk.aws_lambda import IFunction
@@ -32,6 +33,9 @@ class WsLambdaIntegration(WsIntegration):
         :param args: Additional arguments.
         :param kwargs: Additional named arguments.
         """
+        self.__id = id
+        self.__integration_name = integration_name
+
         super().__init__(
             scope=scope,
             id=id,
@@ -43,3 +47,12 @@ class WsLambdaIntegration(WsIntegration):
             *args,
             **kwargs
         )
+
+    @property
+    def hash(self):
+        hashable = (
+               self.__id +
+               self.__integration_name
+        ).encode('utf-8')
+
+        return hashlib.sha256(hashable).hexdigest()

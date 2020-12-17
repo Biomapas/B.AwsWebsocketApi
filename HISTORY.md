@@ -1,5 +1,11 @@
 # Release history
 
+### 0.0.11
+* Update docker image for pipelines.
+* Add hash properties.
+* Make ws deployment more custom.
+* Update tests.
+
 ### 0.0.9
 * Update readme documentation regarding testing.
 

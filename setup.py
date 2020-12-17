@@ -34,8 +34,8 @@ setup(
         'aws-cdk.custom_resources>=1.60.0,<2.0.0',
 
         # Our.
-        'b-aws-testing-framework>=0.0.11,<2.0.0',
-        'b-cf-outputs>=0.0.2,<1.0.0',
+        'b-aws-testing-framework>=0.0.23,<2.0.0',
+        'b-stage-deployment>=0.0.2,<1.0.0',
 
         # Other.
         'websockets>=8.0.0,<9.0.0',

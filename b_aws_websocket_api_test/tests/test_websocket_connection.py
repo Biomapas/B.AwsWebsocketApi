@@ -2,25 +2,21 @@ import asyncio
 import json
 import logging
 import time
-from typing import Any
-
 import websockets
 
-from b_aws_websocket_api_test.testing_infrastructure import TestingInfrastructure
+from b_aws_websocket_api_test.infrastructure import Infrastructure
 
 logger = logging.getLogger(__name__)
 
 
-def test_websocket_connection(
-        stack_outputs: Any
-) -> None:
+def test_websocket_connection() -> None:
     """
     Establishes a websocket connection with an API.
     Tries to send and receive a frame.
 
     :return: No return.
     """
-    websocket_url = stack_outputs[TestingInfrastructure.WEBSOCKET_API_URL_KEY]
+    websocket_url = Infrastructure.get_output(Infrastructure.WEBSOCKET_API_URL_KEY)
 
     logger.info(f'Creating websocket connection with url: {websocket_url}.')
 

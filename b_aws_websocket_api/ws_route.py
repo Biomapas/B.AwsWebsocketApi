@@ -1,3 +1,4 @@
+import hashlib
 from typing import Optional, List, Any
 
 from aws_cdk.aws_apigatewayv2 import CfnRoute, CfnRouteResponse
@@ -52,6 +53,9 @@ class WsRoute(CfnRoute):
         :param target: The target for the route.
         :param default_route_response: Specify whether to create a route response resource.
         """
+        self.__id = id
+        self.__route_key = route_key
+
         super().__init__(
             scope=scope,
             id=id,
@@ -79,3 +83,12 @@ class WsRoute(CfnRoute):
                 route_id=self.ref,
                 route_response_key='$default',
             )
+
+    @property
+    def hash(self):
+        hashable = (
+               self.__id +
+               self.__route_key
+        ).encode('utf-8')
+
+        return hashlib.sha256(hashable).hexdigest()
