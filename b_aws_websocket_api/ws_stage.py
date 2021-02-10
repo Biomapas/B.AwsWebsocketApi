@@ -123,10 +123,10 @@ class WsStage(CfnStage):
 
         CfnOutput(
             scope=scope,
-            id=f'{ws_api.name}ConnectionUrl',
-            value=self.connection_url,
-            description='A websocket connection URL.',
-            export_name=f'{ws_api.name}ConnectionUrl'
+            id=f'{ws_api.name}ConnectionsUrl',
+            value=self.connections_url,
+            description='A websocket connections URL.',
+            export_name=f'{ws_api.name}ConnectionsUrl'
         )
 
     @property
@@ -134,15 +134,15 @@ class WsStage(CfnStage):
         return f'wss://{self.api.ref}.execute-api.{self.__scope.region}.amazonaws.com/{self.ref}'
 
     @property
-    def connection_url(self):
-        return f'https://{self.api.ref}.execute-api.{self.__scope.region}.amazonaws.com/{self.ref}'
+    def connections_url(self):
+        return f'https://{self.api.ref}.execute-api.{self.__scope.region}.amazonaws.com/{self.ref}/@connections'
 
     @property
     def api_arn(self):
         return f'arn:aws:apigateway:{self.__scope.region}::/restapis/{self.api.ref}/stages/{self.stage_name}'
 
     @property
-    def connections_url(self):
+    def connections_arn(self):
         return f'arn:aws:execute-api:{self.__scope.region}:{self.__scope.account}:{self.api.ref}/{self.stage_name}/POST/@connections/*'
 
     @property
