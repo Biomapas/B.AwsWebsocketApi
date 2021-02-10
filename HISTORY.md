@@ -1,6 +1,6 @@
 # Release history
 
-### 0.0.13
+### 1.0.0
 * Change ws connections endpoint url and arn function names.
 
 ### 0.0.12
