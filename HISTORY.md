@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.13
+* Change ws connections endpoint url and arn function names.
+
 ### 0.0.12
 * Expose function in lambda integration.
 
