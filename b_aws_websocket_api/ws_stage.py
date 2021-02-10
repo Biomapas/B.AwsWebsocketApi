@@ -142,7 +142,7 @@ class WsStage(CfnStage):
         return f'arn:aws:apigateway:{self.__scope.region}::/restapis/{self.api.ref}/stages/{self.stage_name}'
 
     @property
-    def connections_url(self):
+    def connections_arn(self):
         return f'arn:aws:execute-api:{self.__scope.region}:{self.__scope.account}:{self.api.ref}/{self.stage_name}/POST/@connections/*'
 
     @property
