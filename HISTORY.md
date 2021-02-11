@@ -1,6 +1,6 @@
 # Release history
 
-### 1.0.1
+### 1.1.0
 * Add previously removed websocket http url.
 
 ### 1.0.0
