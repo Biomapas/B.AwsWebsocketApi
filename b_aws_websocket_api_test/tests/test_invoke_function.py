@@ -4,6 +4,7 @@ from b_aws_testing_framework.credentials import Credentials
 from b_aws_websocket_api_test.infrastructure import Infrastructure
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 def test_invoke_function() -> None:

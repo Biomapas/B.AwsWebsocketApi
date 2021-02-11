@@ -7,6 +7,7 @@ import websockets
 from b_aws_websocket_api_test.infrastructure import Infrastructure
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 def test_websocket_connection() -> None:
@@ -20,15 +21,14 @@ def test_websocket_connection() -> None:
 
     logger.info(f'Creating websocket connection with url: {websocket_url}.')
 
-    async def hello(current_attempt: int = 0, max_attempts: int = 5, sleep_seconds: int = 2):
+    async def hello(current_attempt: int = 0, max_attempts: int = 5, sleep_seconds: int = 10):
         if current_attempt == max_attempts:
             raise RecursionError()
 
         try:
             timeouts = dict(
-                timeout=10,
-                close_timeout=10,
-                ping_timeout=10
+                close_timeout=100,
+                ping_timeout=100
             )
 
             async with websockets.connect(websocket_url, **timeouts) as websocket:
