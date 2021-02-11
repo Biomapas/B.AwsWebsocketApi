@@ -7,6 +7,7 @@ import websockets
 from b_aws_websocket_api_test.infrastructure import Infrastructure
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 def test_websocket_connection() -> None:
@@ -26,8 +27,7 @@ def test_websocket_connection() -> None:
 
         try:
             timeouts = dict(
-                timeout=10,
-                close_timeout=10,
+                close_timeout=100,
                 ping_timeout=10
             )
 
