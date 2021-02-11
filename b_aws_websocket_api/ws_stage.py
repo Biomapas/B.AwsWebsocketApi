@@ -134,8 +134,12 @@ class WsStage(CfnStage):
         return f'wss://{self.api.ref}.execute-api.{self.__scope.region}.amazonaws.com/{self.ref}'
 
     @property
+    def http_url(self):
+        return f'https://{self.api.ref}.execute-api.{self.__scope.region}.amazonaws.com/{self.ref}'
+
+    @property
     def connections_url(self):
-        return f'https://{self.api.ref}.execute-api.{self.__scope.region}.amazonaws.com/{self.ref}/@connections'
+        return f'{self.http_url}/@connections'
 
     @property
     def api_arn(self):
