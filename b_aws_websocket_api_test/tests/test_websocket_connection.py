@@ -28,7 +28,7 @@ def test_websocket_connection() -> None:
         try:
             timeouts = dict(
                 close_timeout=100,
-                ping_timeout=10
+                ping_timeout=100
             )
 
             async with websockets.connect(websocket_url, **timeouts) as websocket:
