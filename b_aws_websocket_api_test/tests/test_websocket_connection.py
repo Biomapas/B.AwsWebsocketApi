@@ -21,7 +21,7 @@ def test_websocket_connection() -> None:
 
     logger.info(f'Creating websocket connection with url: {websocket_url}.')
 
-    async def hello(current_attempt: int = 0, max_attempts: int = 5, sleep_seconds: int = 2):
+    async def hello(current_attempt: int = 0, max_attempts: int = 5, sleep_seconds: int = 10):
         if current_attempt == max_attempts:
             raise RecursionError()
 
