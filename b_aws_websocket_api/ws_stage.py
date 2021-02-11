@@ -123,10 +123,10 @@ class WsStage(CfnStage):
 
         CfnOutput(
             scope=scope,
-            id=f'{ws_api.name}ConnectionsUrl',
-            value=self.connections_url,
-            description='A websocket connections URL.',
-            export_name=f'{ws_api.name}ConnectionsUrl'
+            id=f'{ws_api.name}HttpUrl',
+            value=self.http_url,
+            description='A websocket http URL.',
+            export_name=f'{ws_api.name}HttpUrl'
         )
 
     @property
