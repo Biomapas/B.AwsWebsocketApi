@@ -1,7 +1,7 @@
 from typing import Optional, Any
 
+from aws_cdk import Stack
 from aws_cdk.aws_apigatewayv2 import CfnApi
-from aws_cdk.core import Stack
 
 
 class WsApi(CfnApi):

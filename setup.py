@@ -28,17 +28,14 @@ setup(
     include_package_data=True,
     install_requires=[
         # AWS CDK.
-        'aws-cdk.core>=1.60.0,<2.0.0',
-        'aws_cdk.aws_apigatewayv2>=1.60.0,<2.0.0',
-        'aws-cdk.aws-lambda>=1.60.0,<2.0.0',
-        'aws-cdk.custom_resources>=1.60.0,<2.0.0',
+        'aws-cdk-lib>=2.0.0,<3.0.0',
+        'aws-cdk-constructs>=2.0.0,<3.0.0',
 
         # Our.
-        'b-aws-testing-framework>=0.0.23,<2.0.0',
-        'b-stage-deployment>=0.0.2,<1.0.0',
+        'b-stage-deployment>=1.0.0,<2.0.0',
 
         # Other.
-        'websockets>=8.0.0,<9.0.0',
+        'websockets>=11.0.0,<12.0.0',
         'pytest>=6.0.2,<7.0.0',
         'pytest-cov>=2.10.1,<3.0.0',
         'pytest-timeout>=1.3.4,<1.5.0'

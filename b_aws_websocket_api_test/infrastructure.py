@@ -1,6 +1,6 @@
 from aws_cdk.aws_lambda import Code, Runtime
-from aws_cdk.core import CfnOutput, Construct
 from b_aws_testing_framework.tools.cdk_testing.testing_stack import TestingStack
+from constructs import Construct
 
 from b_aws_websocket_api.ws_api import WsApi
 from b_aws_websocket_api.ws_deployment import WsDeployment
@@ -47,7 +47,7 @@ class Infrastructure(TestingStack):
                 '    }\n'
             ),
             handler='index.handler',
-            runtime=Runtime.PYTHON_3_6,
+            runtime=Runtime.PYTHON_3_8,
         )
 
         self.integration: WsLambdaIntegration = WsLambdaIntegration(

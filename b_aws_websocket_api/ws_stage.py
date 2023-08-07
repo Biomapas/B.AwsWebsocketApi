@@ -1,8 +1,8 @@
 from typing import Optional, Dict, Any
 
+from aws_cdk import CfnOutput, RemovalPolicy, Stack
 from aws_cdk.aws_apigatewayv2 import CfnStage
 from aws_cdk.aws_logs import RetentionDays, LogGroup
-from aws_cdk.core import CfnOutput, RemovalPolicy, Stack
 
 from b_aws_websocket_api.ws_api import WsApi
 

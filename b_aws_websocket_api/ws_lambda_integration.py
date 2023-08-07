@@ -1,8 +1,9 @@
 import hashlib
 from typing import Union
 
+from aws_cdk import Stack
 from aws_cdk.aws_lambda import IFunction
-from aws_cdk.core import Stack
+
 from b_aws_websocket_api.ws_function import WsFunction
 from b_aws_websocket_api.ws_integration import WsIntegration
 
@@ -56,8 +57,8 @@ class WsLambdaIntegration(WsIntegration):
     @property
     def hash(self):
         hashable = (
-               self.__id +
-               self.__integration_name
+                self.__id +
+                self.__integration_name
         ).encode('utf-8')
 
         return hashlib.sha256(hashable).hexdigest()
