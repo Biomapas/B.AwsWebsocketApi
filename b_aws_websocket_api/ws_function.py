@@ -1,12 +1,12 @@
 import hashlib
 from typing import Optional, Mapping, List
 
+from aws_cdk import Stack, Duration
 from aws_cdk.aws_ec2 import ISecurityGroup, IVpc, SubnetSelection
 from aws_cdk.aws_iam import PolicyStatement, IRole
 from aws_cdk.aws_lambda import *
 from aws_cdk.aws_logs import RetentionDays
 from aws_cdk.aws_sqs import IQueue
-from aws_cdk.core import Stack, Duration
 from jsii import Number
 
 
@@ -134,8 +134,8 @@ class WsFunction(Function):
     @property
     def hash(self):
         hashable = (
-               self.__id +
-               self.__name
+                self.__id +
+                self.__name
         ).encode('utf-8')
 
         return hashlib.sha256(hashable).hexdigest()

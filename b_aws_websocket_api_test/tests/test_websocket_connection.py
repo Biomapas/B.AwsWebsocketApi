@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 import time
+
 import websockets
 
 from b_aws_websocket_api_test.infrastructure import Infrastructure
@@ -38,7 +39,7 @@ def test_websocket_connection() -> None:
                 logger.info(f'Received data: {data}.')
 
                 assert json.loads(data)['message'] == 'success'
-        except websockets.exceptions.InvalidStatusCode as ex:
+        except websockets.InvalidStatusCode as ex:
             logger.error(f'Status code from WS API: {ex}. Retrying...')
 
             time.sleep(sleep_seconds)

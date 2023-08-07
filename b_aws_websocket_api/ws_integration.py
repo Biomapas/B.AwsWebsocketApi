@@ -1,7 +1,7 @@
 from typing import Optional, Any
 
+from aws_cdk import Stack
 from aws_cdk.aws_apigatewayv2 import CfnIntegration, CfnIntegrationResponse
-from aws_cdk.core import Stack
 from jsii import Number
 
 from b_aws_websocket_api.ws_api import WsApi

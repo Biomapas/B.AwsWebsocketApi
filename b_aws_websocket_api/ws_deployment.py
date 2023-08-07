@@ -1,8 +1,10 @@
 from typing import Optional
 
-from aws_cdk.core import Stack, Construct
+from aws_cdk import Stack
 from b_stage_deployment.function import StageDeploymentSingletonFunction
 from b_stage_deployment.resource import StageDeploymentResource
+from constructs import Construct
+
 from b_aws_websocket_api.ws_stage import WsStage
 
 

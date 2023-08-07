@@ -1,8 +1,8 @@
 import hashlib
 from typing import Optional, List, Any
 
+from aws_cdk import Stack
 from aws_cdk.aws_apigatewayv2 import CfnRoute, CfnRouteResponse
-from aws_cdk.core import Stack
 
 from b_aws_websocket_api.ws_api import WsApi
 
@@ -87,8 +87,8 @@ class WsRoute(CfnRoute):
     @property
     def hash(self):
         hashable = (
-               self.__id +
-               self.__route_key
+                self.__id +
+                self.__route_key
         ).encode('utf-8')
 
         return hashlib.sha256(hashable).hexdigest()

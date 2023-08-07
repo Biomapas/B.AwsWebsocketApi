@@ -12,13 +12,22 @@ on:
 jobs:
   install-test:
     runs-on: ubuntu-latest
-    container: biomapas/cicd-full:0.0.2
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
       - name: Install
         run: |
           npm install -g aws-cdk
           pip install . --upgrade
+          pip install -r b_aws_websocket_api_test/requirements.txt
+
           pip list
